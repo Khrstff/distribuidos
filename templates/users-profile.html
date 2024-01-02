@@ -10,22 +10,19 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
-</head>
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
 
 <body>
 
@@ -33,7 +30,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="users-index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SAES 2</span>
       </a>
@@ -57,21 +54,21 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-index.html">
+        <a class="nav-link collapsed" href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="users-profile.html">
+        <a class="nav-link " href="/profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/profile">
           <i class="bi bi-door-open"></i>
           <span>Salir</span>
         </a>
@@ -94,7 +91,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
               <h2>Kevin Anderson</h2>
               <h3>Web Designer</h3>
               <div class="social-links mt-2">
@@ -169,7 +166,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen de perfil</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/profile-img.jpg" alt="Profile">
+                        <img src="{{ url_for('static', filename='assets/img/profile-img.jpg') }}" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -265,12 +262,12 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 </body>
 
