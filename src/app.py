@@ -7,6 +7,52 @@ template_dir = os.path.join(template_dir, 'src' , 'templates')
 
 app = Flask(__name__, static_folder='templates/assets')
 
+@app.route('/')
+def login():
+    
+    return render_template('pages-login.html')
+
+@app.route('/pages-login.html')
+def login2():
+    
+    return render_template('pages-login.html')
+
+@app.route('/login',methods=['POST'])
+def log():
+    username = request.form['username']
+    password = request.form['password']
+    if username and password:
+        cursor = db.database.cursor()
+        sql = "select password from USUARIOS where USERNAME = %s"
+        data = (username)
+        cursor.execute(sql,(data,))
+        contra = cursor.fetchall()
+        passw = str(contra)
+        
+        return passw[3:len(passw)-4]
+
+    
+
+@app.route('/pages-register.html')
+def registra():
+    
+    return render_template('pages-register.html')
+
+@app.route('/addUsr',methods=['POST'])
+def reg():
+    nombre = request.form['name']
+    correo = request.form['email']
+    username = request.form['username']
+    contra = request.form['password']
+
+    if nombre and correo and username and contra:
+        cursor = db.database.cursor()
+        sql = "INSERT INTO USUARIOS (EMAIL,NOMBRE,PASSWORD,USERNAME) VALUES (%s, %s, %s, %s)"
+        data = (correo,nombre,contra,username)
+        cursor.execute(sql,data)
+        db.database.commit()
+    return redirect(url_for('login'))
+
 
 @app.route('/g-students-register.html')
 def home():
@@ -27,10 +73,12 @@ def addAlumno():
     boleta = request.form['boleta']
     correo = request.form['correo']
     contra = request.form['contra']
+    foto = request.form['foto']
+
     if nombre and aPater and aMater and boleta and correo and contra:
         cursor = db.database.cursor()
-        sql = "INSERT INTO ALUMNOS (NOMBRE,APATERNO,AMATERNO,BOLETA,CORREO,CONTRASENA) VALUES (%s, %s, %s, %s, %s, %s)"
-        data = (nombre, aPater, aMater, boleta, correo, contra)
+        sql = "INSERT INTO ALUMNOS (NOMBRE,APATERNO,AMATERNO,BOLETA,CORREO,CONTRASENA,FOTO) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        data = (nombre, aPater, aMater, boleta, correo, contra, foto)
         cursor.execute(sql,data)
         db.database.commit()
     return redirect(url_for('home'))
