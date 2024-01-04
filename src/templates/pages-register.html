@@ -28,20 +28,6 @@
 
 </head>
 
-<?php
-$host="myname.database.windows.net";
-$username="theUser";
-$password="password";
-$database="databaseName";
-$tbl_name="tableName";
-
-$mysql = mysql_connect($host, $username, $password)or die("cannot connect"); 
-mysql_select_db($database);
-$sql='SELECT * FROM $tbl_name';
-$result=mysql_query($sql); 
-
-?>
-
 <body>
 
   <main>
